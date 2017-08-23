@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav>
+      <ul id="menu">  
+        <li><a class="menu-item" href="/">All Robots</a></li>
+        <li><a class="menu-item" href="employed">Employed</a></li>
+        <li><a class="menu-item" href="unemployed">Looking for Work</a></li>
+      </ul>
+    </nav>
+    <div id="wrapper2">
+      {{#robot}}
+        <div class="user-2">
+          <div class="top-row">
+            <div class="wrapper-image">
+              <img class="round" src="{{avatar}}">
+            </div>
+            <div class="contact">
+              <p class="name-2">{{name}}</p>
+              <p>
+              {{#address}}
+                {{#city}}
+                  {{city}}, 
+                {{/city}}
+                <a href="country/{{country}}">{{country}}</a>
+              {{/address}}
+              | 
+              {{#job}}
+                {{job}}, {{company}}
+              {{/job}}
+              {{^job}}
+                <span class="forhire">Available for hire</span>
+              {{/job}} <br>
+              {{email}} | {{phone}}
+              </p>
+            </div>
+          </div>
+          <div class="edu-row">
+            {{#university}}
+              <div class="edu">
+                <p><strong>Education</strong></p>
+              </div>
+              <div class="school">
+                {{university}}
+              </div>
+            {{/university}}
+          </div>
+          <div class="skill-row">
+            <div class="skill">
+              <p><strong>Skills</strong></p>
+            </div>
+            <div class="skills">
+              {{#skills}}
+                {{#.}}
+                  <a href="skill/{{.}}">{{.}}</a><br>
+                {{/.}}
+              {{/skills}}
+            </div>
+          </div>
+        </div>
+      {{/robot}}
+    </div>
+  </body>
+</html>
